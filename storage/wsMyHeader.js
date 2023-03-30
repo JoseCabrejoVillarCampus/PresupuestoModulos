@@ -29,7 +29,60 @@ let wsMyHeader={
         });
         return plantilla2;
     },
+    showTable(table){
+        const data1 = table.map((val, id)=>{
+            return (
+                (val.camp)
+                ? this.list1(val)
+                : this.cards1(val)
+            );
+        });
+        return data1;
+    },
     
+    list1(p3){
+        let plantilla = p3.camp.map((val, id)=>{
+        
+        
+            return ` 
+            <section class= >
+            <div class="d-flex flex-row justify-content-evenly fs-5">
+                <div>
+                <table class="table table-striped text-center">
+                    <thead  id="titulos">
+                    <th colspan="1">
+                    ${val.titulo1.map((val, id)=>{return `<th>${val.name}</th>`}).join("")}
+                    </th>
+                    </thead>
+                    <tbody class="bodyTable ">
+                    <tr>
+                    ${val.primer.map((val, id)=>{return`<th>${val.name}</th>`}).join("")}
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div>
+                <table class="table table-striped text-center">
+                <thead  id="titulos">
+                <th>
+                  ${val.titulo2.map((val, id)=>{return `<th>${val.name}</th>`}).join("")}
+                </th>
+                </thead>
+                <tbody class="bodyTable ">
+                <tr>
+                ${val.segundo.map((val, id)=>{return`<th>${val.name}</th>`}).join("")}
+                </tr>
+                </tbody>
+                </table>
+                </div>
+            </div>
+        </section>
+            `
+    
+            
+          })
+          return plantilla.join("")
+    },
     
 }
 self.addEventListener("message",(e)=>{

@@ -10,7 +10,9 @@ export default{
         //enviamos un mensaje el worker
         ws.postMessage({module: "showHeader", data : this.presupuesto});
         ws.postMessage({module: "showForm", data : this.formulario});
-        let id = ["#head1","#head2"];
+        ws.postMessage({module:"showTable", data: this.table});
+        ws.postMessage({module:"list1", data: this.table});
+        let id = ["#head1","#head2","#head3"];
         let count = 0;
         //esto es lo que llega del worker
         ws.addEventListener("message",(e)=>{
