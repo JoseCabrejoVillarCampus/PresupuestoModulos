@@ -3,10 +3,19 @@ export default{
         localStorage.setItem("myHeader", JSON.stringify({
             presupuesto:[
                 {
-                    tilte:"Presupuesto Disponible",
+                    title:"Presupuesto Disponible",
                     monto:`$`,
                     ingresos:"100",
-                    egresos:""
+                    egresos:"100"
+                }
+            ],
+            formulario:[
+                {
+                    title:"Ingresos o Egresos",
+                    ingresos:`+`,
+                    egreso:`-`,
+                    descripcion:"Agregar Descripción",
+                    valor:"valor",
                 }
             ]
         }))
