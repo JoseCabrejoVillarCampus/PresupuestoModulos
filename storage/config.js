@@ -4,18 +4,22 @@ export default{
             presupuesto:[
                 {
                     title:"Presupuesto Disponible",
-                    monto:`$`,
-                    ingresos:"100",
-                    egresos:"100"
+                    monto:"$",
+                    ingresos:"",
+                    egresos:""
                 }
             ],
             formulario:[
                 {
                     title:"Ingresos o Egresos",
-                    ingresos:`Entrada de Dinero`,
-                    egresos:`Salida de Dinero`,
-                    descripcion:"Agregar Descripción",
-                    valor:"valor",
+                    ingresos:[{
+                        descripcion:"Agregar Descripción",
+                        valor:"valor",
+                    }],
+                    egresos:[{
+                        descripcion:"Agregar Descripción",
+                        valor:"valor",
+                    }],
                 }
             ],
             table:[
@@ -25,17 +29,17 @@ export default{
                         {name:"INGRESOS"},
                     ],
                     primer:[
-                        {name:"servicios"},
-                        {name:"total"},
-                        {name:"%"},
+                        {name:""},
+                        {name:""},
+                        {name:""},
                     ],
                     titulo2:[
                         {name:"EGRESOS"},
                     ],
                     segundo:[
-                        {name:"internet"},
-                        {name:"total"},
-                        {name:"%"},
+                        {name:""},
+                        {name:""},
+                        {name:""},
                     ],
                     },
                   ],

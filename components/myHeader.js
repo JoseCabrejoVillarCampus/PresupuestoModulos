@@ -1,5 +1,8 @@
 import config from "../storage/config.js";
+
 export default{
+    //evento de escucha del boton
+    //inicializar worker
     show(){
 
         config.dataMyHeader();
@@ -10,6 +13,7 @@ export default{
         //enviamos un mensaje el worker
         ws.postMessage({module: "showHeader", data : this.presupuesto});
         ws.postMessage({module: "showForm", data : this.formulario});
+
         ws.postMessage({module:"showTable", data: this.table});
         ws.postMessage({module:"list1", data: this.table});
         let id = ["#head1","#head2","#head3"];
@@ -27,5 +31,6 @@ export default{
             //finalizamos el worker
             (id.length-1==count) ? ws.terminate():count++;
         });
+        //inicializar con el click
     }
 }
