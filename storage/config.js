@@ -1,34 +1,25 @@
-export default{
-    dataMyHeader(){
-        localStorage.setItem("myHeader", JSON.stringify({
-            contenido:{     
+export default {
+    dataMyHeader() {
+        const data = {
+            contenido: {
                 contador: "",
-
-                ingresos: {                 
-                    contador: 
-                    "",
-                    datos: [
-        
-                    ]
-                    
-                },
-                egresos: {
+                ingresos: {
                     contador: "",
-                    porcentaje: "",
-                    
-                    info:[{
-                        datos:[
-                            
-                        ],
-                        porcentajes: [
-
-                        ]
-                    }   
-                    ],
-                    datos: [
-                    ]
-                }
+                    datos: [],
+                },
+            egresos: {
+                contador: "",
+                porcentaje: "",
+                info: [
+                {
+                    datos: [],
+                    porcentajes: [],
+                },
+                ],
+                datos: [],
             },
-        }))
-    }
-}
+            },
+        };
+        localStorage.setItem("myHeader", JSON.stringify(data));
+    },
+};
