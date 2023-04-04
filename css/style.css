@@ -6,6 +6,13 @@
     text-shadow: 1px 1px 2px black;
  
 }
+#contat, #tit{
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bolder;
+    font-size: 50px;
+
+}
 #tit1{
     background-color: #20DBDE;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%2320DBDE' cx='50' cy='0' r='50'/%3E%3Cg fill='%2300d9e1' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300d7e4' cx='50' cy='100' r='50'/%3E%3Cg fill='%2300d5e6' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300d3e9' cx='50' cy='200' r='50'/%3E%3Cg fill='%2300d0ec' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300ceef' cx='50' cy='300' r='50'/%3E%3Cg fill='%2300cbf1' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300c9f3' cx='50' cy='400' r='50'/%3E%3Cg fill='%2300c6f6' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300c4f8' cx='50' cy='500' r='50'/%3E%3Cg fill='%2300c1fa' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300befb' cx='50' cy='600' r='50'/%3E%3Cg fill='%2300bbfd' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300b9fe' cx='50' cy='700' r='50'/%3E%3Cg fill='%2300b5ff' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300b2ff' cx='50' cy='800' r='50'/%3E%3Cg fill='%2300afff' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%2300acff' cx='50' cy='900' r='50'/%3E%3Cg fill='%2300a8ff' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%231CA5FF' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");

@@ -1,8 +1,8 @@
 let wsMyHeader={
     showHeader(p1){
         return `<section class="w-50 text-center pt-4 pb-5">
-            <h1 class="text-white fw-bold" id="tit">DINERO DISPONIBLE</h1>
-            <h2 class="pt-4 pb-4 text-white ">$${p1.contador}</h2>
+            <h1  id="tit">DINERO DISPONIBLE</h1>
+            <h2 class="pt-4 pb-4" id="contat">$${p1.contador}</h2>
             <h3 class="pt-4 pb-4 mb-3 ingresos" id="tit1" > INGRESOS <a> $${p1.ingresos.contador}</a></h3>
             <h3 class="pt-4 pb-4 egresos" id="tit2" > EGRESOS  <a>  $${p1.egresos.contador}</a> <a> ${p1.egresos.porcentaje}%</a></h3>
         </section>`
