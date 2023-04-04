@@ -80,6 +80,7 @@ export default {
           ws.terminate();
         }
       });
+      localStorage.setItem("myHeader", JSON.stringify({ contenido }));
     });
   },
   
