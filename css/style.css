@@ -44,3 +44,7 @@
 #bi2{
     fill: #F20505;
 }
+.chart{
+    width: 100%;
+    min-width: 400px;
+}
