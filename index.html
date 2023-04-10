@@ -1,41 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./main.js" type="module" defer></script>
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" async integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      async
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js"
+      defer
+    ></script>
+
     <title>Presupuesto</title>
   </head>
-<body>
-    <div class="head1 container-flui w-100 d-flex justify-content-center " id="head1">    
-    </div>
+  <body>
+    <div
+      class="head1 container-flui w-100 d-flex justify-content-center"
+      id="head1"
+    ></div>
     <div class="head2 container-fluid" id="head2">
       <form id="myForm">
         <section class="d-flex justify-content-center pb-4 pt-4">
-          <select class="form-select mx-2 py-3" style="width: fit-content;" name="presupuesto">
+          <select
+            class="form-select mx-2 py-3"
+            style="width: fit-content"
+            name="presupuesto"
+          >
             <option name="entrada">Ingreso</option>
             <option name="salida">Egreso</option>
           </select>
-          <input class="form-control form-control mx-2 py-3" style="width: 25%" type="text"  name="descripcion" placeholder="Descripcion">
-          <input class="form-control form-control mx-2 py-3" style="width: 7%" type="" name="valor" placeholder=Valor>
+          <input
+            class="form-control form-control mx-2 py-3"
+            style="width: 25%"
+            type="text"
+            name="descripcion"
+            placeholder="Descripcion"
+          />
+          <input
+            class="form-control form-control mx-2 py-3"
+            style="width: 7%"
+            type=""
+            name="valor"
+            placeholder="Valor"
+          />
 
           <button type="submit" value="Agregar" class="btn-add">
-            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-check-circle" id="bi1" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" stroke-width="1"/>
-              <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="46"
+              height="46"
+              fill="currentColor"
+              class="bi bi-check-circle"
+              id="bi1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                stroke-width="1"
+              />
+              <path
+                d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+              />
             </svg>
           </button>
-      </section>
+        </section>
       </form>
     </div>
-    <div class="head3  container pt-5 datos col-12  py-5  d-flex flex-column flex-md-row gap-5 justify-content-center "  id="head3">
-      
+    <div
+      class="head3 container pt-5 datos col-12 py-5 d-flex flex-column flex-md-row gap-5 justify-content-center"
+      id="head3"
+    ></div>
+    <div class="contgrafics col-12 m-5 d-flex">
+      <div id="graficas" class="charts col-12"></div>
     </div>
-    
-</body>
+  </body>
 </html>

@@ -80,7 +80,44 @@ export default {
           ws.terminate();
         }
       });
-      localStorage.setItem("myHeader", JSON.stringify({ contenido }));
+      const getOptionChart = ()=>{
+        return {
+          xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              data: [
+                120,
+                {
+                  value: 200,
+                  itemStyle: {
+                    color: '#a90000'
+                  }
+                },
+                150,
+                80,
+                70,
+                110,
+                130
+              ],
+              type: 'bar'
+            }
+          ]
+        };
+    };
+
+    const initCharts = ()=>{
+        const chart = echarts.init(document.querySelector("#graficas"));
+        chart.setOption(getOptionChart());
+    }
+    initCharts();
+
+    localStorage.setItem("myHeader", JSON.stringify({ contenido }));
     });
   },
   

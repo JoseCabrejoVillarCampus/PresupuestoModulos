@@ -51,7 +51,9 @@
 #bi2{
     fill: #F20505;
 }
-.chart{
+.charts{
+    display: flex;
+    justify-content: center;
     width: 100%;
-    min-width: 400px;
+    min-height: 400px;
 }
