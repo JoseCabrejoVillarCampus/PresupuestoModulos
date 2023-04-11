@@ -51,7 +51,7 @@ export default {
       if (data.presupuesto === "Ingreso") {
         contIngresos = contenido.ingresos.contador + parseInt(data.valor);
         contenido.ingresos.datos.unshift(data);
-        contenido.ingresos.contador = contIngresos;
+        contenido.ingresos.contador = contIngresos.toLocaleString();
       } else {
         contEgresos = contenido.egresos.contador - parseInt(data.valor);
         contenido.egresos.info.forEach((val) => {
@@ -65,11 +65,11 @@ export default {
           });
         });
         contenido.egresos.datos.unshift(data);
-        contenido.egresos.contador = contEgresos;
+        contenido.egresos.contador = contEgresos.toLocaleString();
       }
 
       disponible = contIngresos - (-contEgresos);
-      contenido.contador = disponible;
+      contenido.contador = disponible.toLocaleString();
       porcentajetotal = contIngresos === 0 ? 0 : -(100 * contEgresos) / contIngresos;
       contenido.egresos.porcentaje = parseInt(porcentajetotal);
       formulario.reset();
