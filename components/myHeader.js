@@ -3,7 +3,7 @@ import config from "../storage/config.js";
 const formulario = document.querySelector("#myForm");
 
 let contIngresos = 0;
-let contEgresos = 0; 
+let contEgresos = 0;
 let disponible = 0;
 let porcentajetotal = 0;
 let cuenta = 0;
@@ -11,13 +11,23 @@ let cuenta = 0;
 export default {
   show() {
     config.dataMyHeader();
-    const { contenido } = JSON.parse(localStorage.getItem("myHeader"));
-    const ws = new Worker("storage/wsMyHeader.js", { type: "module" });
+    const {
+      contenido
+    } = JSON.parse(localStorage.getItem("myHeader"));
+    const ws = new Worker("storage/wsMyHeader.js", {
+      type: "module"
+    });
     const id = ["#head1", "#head3"];
     let count = 0;
 
-    ws.postMessage({ module: "showHeader", data: contenido });
-    ws.postMessage({ module: "showIngresos", data: contenido });
+    ws.postMessage({
+      module: "showHeader",
+      data: contenido
+    });
+    ws.postMessage({
+      module: "showIngresos",
+      data: contenido
+    });
 
     ws.addEventListener("message", (e) => {
       const doc = new DOMParser().parseFromString(e.data, "text/html");
@@ -33,17 +43,17 @@ export default {
     formulario.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target));
-        
+
       if (data.valor === "") {
         alert("Por favor, ingresa un valor.");
         return;
       }
       if (data.presupuesto === "Ingreso") {
-        contIngresos += parseInt(data.valor);
+        contIngresos = contenido.ingresos.contador + parseInt(data.valor);
         contenido.ingresos.datos.unshift(data);
         contenido.ingresos.contador = contIngresos;
       } else {
-        contEgresos -= parseInt(data.valor);
+        contEgresos = contenido.egresos.contador - parseInt(data.valor);
         contenido.egresos.info.forEach((val) => {
           val.porcentajes = [];
           val.datos.unshift(data.valor);
@@ -65,12 +75,20 @@ export default {
       formulario.reset();
 
 
-      const ws = new Worker("storage/wsMyHeader.js", { type: "module" });
+      const ws = new Worker("storage/wsMyHeader.js", {
+        type: "module"
+      });
       const id = ["#head1", "#head3"];
       let count = 0;
 
-      ws.postMessage({ module: "showHeader", data: contenido });
-      ws.postMessage({ module: "showIngresos", data: contenido });
+      ws.postMessage({
+        module: "showHeader",
+        data: contenido
+      });
+      ws.postMessage({
+        module: "showIngresos",
+        data: contenido
+      });
 
       ws.addEventListener("message", (e) => {
         document.querySelector(id[count]).innerHTML = e.data;
@@ -80,7 +98,7 @@ export default {
           ws.terminate();
         }
       });
-      const getOptionChart = ()=>{
+      const getOptionChart = () => {
 
         return {
           xAxis: {
@@ -88,24 +106,37 @@ export default {
             data: ['INGRESOS', 'EGRESOS']
           },
           yAxis: {
-            type: 'value'},
-          series: [
-            {
-              data: [contenido.ingresos.contador,{value: -(contenido.egresos.contador) ,itemStyle: {color: '#a90000'}},],
-              type: 'bar'
-            }
-          ]
+            type: 'value'
+          },
+          series: [{
+            data: [contenido.ingresos.contador, {
+              value: -(contenido.egresos.contador),
+              itemStyle: {
+                color: '#a90000'
+              }
+            }, ],
+            type: 'bar'
+          }]
         };
-    };
+      };
 
-    const initCharts = ()=>{
+      const initCharts = () => {
         const chart = echarts.init(document.querySelector("#graficas"));
         chart.setOption(getOptionChart());
-    }
-    initCharts();
+      }
+      initCharts();
 
-    localStorage.setItem("myHeader", JSON.stringify({ contenido }));
+      deleteData=()=>{
+        document.querySelectorAll("#btn");
+          ws.addEventListener("click",(e)=>{
+            console.log(`sssssssss`);
+          });
+      }
+
+      localStorage.setItem("myHeader", JSON.stringify({
+        contenido
+      }));
     });
   },
-  
+
 };

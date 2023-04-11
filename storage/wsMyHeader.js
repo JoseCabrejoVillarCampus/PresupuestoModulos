@@ -11,10 +11,9 @@ let wsMyHeader = {
   showIngresos(p1) {
     const ingresosHTML = p1.ingresos.datos
       .map((val, id) => {
-        return `<tr><td>${val.descripcion} </td> <td>${val.valor}</td></tr>`;
+        return `<tr class="text-center"><td>${val.descripcion} </td> <td class="text-info">+$ ${val.valor}</td></tr>`;
       })
       .join("");
-    
     const egresosHTML = p1.egresos.datos
       .map((val, id) => {
         const porcentajesHTML = p1.egresos.info
@@ -22,12 +21,12 @@ let wsMyHeader = {
             return `<td>${infoVal.porcentajes[id]}%</td>`;
           })
           .join("");
-
+        
         return `<tr>
                     <td>${val.descripcion} </td> 
                     <td>${val.valor}</td>
                     ${porcentajesHTML}
-                    <td><button id="btn${id}" class="btn" onclick="deleteData()"> 
+                    <td><button id="btn" class="btn" onclick="deleteData(${id},${JSON.stringify(p1)})"> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-trash" id="bi2" viewBox="0 0 16 16">
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -37,9 +36,8 @@ let wsMyHeader = {
       })
       .join("");
 
-
     return `<div class="ingresos col-12 col-md-6 w-25 p-2">
-                    <h2 class="text-info">ENTRADAS</h2>
+                    <h2 class="text-center text-info">ENTRADAS</h2>
                     <div class="datoIngreso d-flex  justify-content-between">
                     <table class="table table-striped">
                         <tbody>
@@ -49,19 +47,19 @@ let wsMyHeader = {
                     </div>
                 </div>
                 <div class="egresos col-12 col-md-6 w-25 p-5+2">
-                    <h2 class="text-danger">SALIDAS</h2>
+                    <h2 class="text-center text-danger">SALIDAS</h2>
                     <div class="datoIngreso d-flex justify-content-between">
                     <table class="table table-striped">
                     <tbody class="align-middle">
                     ${p1.egresos.datos
                       .map((val, id) => {
-                        return `<tr><td>${
+                        return `<tr class="text-center"><td>${
                           val.descripcion
-                        } </td> <td class="textdanger">${
+                        } </td> <td class="text-danger">-$ ${
                           val.valor
                         }</td>${p1.egresos.info.map((val, id2) => {
                           return `<td>${val.porcentajes[id]}%</td>`;
-                        })}<td><button id="btn${id}" class="btn" onclick="deleteData(${id},${JSON.stringify(p1)})"> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-trash" id="bi2" viewBox="0 0 16 16">
+                        })}<td><button id="btn" class="btn" onclick="deleteData(${id},${JSON.stringify(p1)})"> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-trash" id="bi2" viewBox="0 0 16 16">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                     </svg> </button></td></tr>`;
@@ -74,6 +72,7 @@ let wsMyHeader = {
                 </div>`;
   },
 };
+
 self.addEventListener("message", (e) => {
   postMessage(wsMyHeader[`${e.data.module}`](e.data.data));
 });
