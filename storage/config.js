@@ -2,13 +2,13 @@ export default {
   dataMyHeader() {
     const data = {
       contenido: {
-        contador: "",
+        contador: 0,
         ingresos: {
-          contador: "",
+          contador: 0,
           datos: [],
         },
         egresos: {
-          contador: "",
+          contador: 0,
           porcentaje: "",
           info: [
             {

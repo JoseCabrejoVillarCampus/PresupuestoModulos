@@ -81,30 +81,17 @@ export default {
         }
       });
       const getOptionChart = ()=>{
+
         return {
           xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: ['INGRESOS', 'EGRESOS']
           },
           yAxis: {
-            type: 'value'
-          },
+            type: 'value'},
           series: [
             {
-              data: [
-                120,
-                {
-                  value: 200,
-                  itemStyle: {
-                    color: '#a90000'
-                  }
-                },
-                150,
-                80,
-                70,
-                110,
-                130
-              ],
+              data: [contenido.ingresos.contador,{value: -(contenido.egresos.contador) ,itemStyle: {color: '#a90000'}},],
               type: 'bar'
             }
           ]
