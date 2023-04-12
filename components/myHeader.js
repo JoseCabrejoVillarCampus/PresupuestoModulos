@@ -51,7 +51,7 @@ export default {
       if (data.presupuesto === "Ingreso") {
         contIngresos = contenido.ingresos.contador + parseInt(data.valor);
         contenido.ingresos.datos.unshift(data);
-        contenido.ingresos.contador = contIngresos.toLocaleString();
+        contenido.ingresos.contador = contIngresos;
       } else {
         contEgresos = contenido.egresos.contador - parseInt(data.valor);
         contenido.egresos.info.forEach((val) => {
@@ -65,11 +65,11 @@ export default {
           });
         });
         contenido.egresos.datos.unshift(data);
-        contenido.egresos.contador = contEgresos.toLocaleString();
+        contenido.egresos.contador = contEgresos;
       }
 
       disponible = contIngresos - (-contEgresos);
-      contenido.contador = disponible.toLocaleString();
+      contenido.contador = disponible;
       porcentajetotal = contIngresos === 0 ? 0 : -(100 * contEgresos) / contIngresos;
       contenido.egresos.porcentaje = parseInt(porcentajetotal);
       formulario.reset();
@@ -126,12 +126,12 @@ export default {
       }
       initCharts();
 
-      deleteData=()=>{
+      /* deleteData=()=>{
         document.querySelectorAll("#btn");
           ws.addEventListener("click",(e)=>{
             console.log(`sssssssss`);
           });
-      }
+      } */
 
       localStorage.setItem("myHeader", JSON.stringify({
         contenido
